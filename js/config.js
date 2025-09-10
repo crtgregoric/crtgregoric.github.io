@@ -127,7 +127,7 @@ const defaults = {
 	isometric: false,
 	useHoloplay: false,
 	loops: false,
-	skipIntro: true,
+	skipIntro: false,
 	testFix: null,
 };
 
