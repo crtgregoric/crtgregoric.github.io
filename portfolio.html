@@ -3,35 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Črt Gregorič | Lead iOS Engineer</title>
+    <title>Črt Gregorič | Lead iOS Engineer & Music Enthusiast</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-body: #f8fafc;
-            --bg-card: #ffffff;
-            --text-main: #1e293b;
-            --text-dim: #64748b;
-            --accent: #2563eb;
-            --accent-gradient: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
-            --border: #e2e8f0;
-            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-        }
-
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg-body: #0f172a;
-                --bg-card: #1e293b;
-                --text-main: #f1f5f9;
-                --text-dim: #94a3b8;
-                --accent: #60a5fa;
-                --accent-gradient: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
-                --border: #334155;
-                --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3);
-                --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.4);
-            }
+            --spotify-black: #121212;
+            --spotify-dark-grey: #181818;
+            --spotify-light-grey: #282828;
+            --spotify-green: #1DB954;
+            --spotify-white: #FFFFFF;
+            --spotify-off-white: #B3B3B3;
+            --card-hover: #3E3E3E;
+            --container-width: 900px;
         }
 
         * {
@@ -41,471 +26,811 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-body);
-            color: var(--text-main);
+            font-family: 'Figtree', sans-serif;
+            background-color: var(--spotify-black);
+            color: var(--spotify-white);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
         }
 
-        .main-wrapper {
-            max-width: 1200px;
-            margin: 4rem auto;
-            display: grid;
-            grid-template-columns: 350px 1fr;
-            gap: 2.5rem;
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
             padding: 0 2rem;
         }
 
-        /* Sidebar Styling */
-        aside {
+        nav {
+            padding: 2rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             position: sticky;
-            top: 4rem;
-            height: fit-content;
+            top: 0;
+            background-color: rgba(18, 18, 18, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
         }
 
-        .profile-card {
-            background: var(--bg-card);
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: var(--shadow-lg);
-            border: 1px solid var(--border);
-            margin-bottom: 2rem;
-        }
-
-        .profile-card h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            line-height: 1.1;
-            margin-bottom: 0.5rem;
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .profile-card .tagline {
-            font-weight: 600;
-            color: var(--text-dim);
-            font-size: 1rem;
-            margin-bottom: 2rem;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-        }
-
-        .contact-list {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-
-        .contact-list li {
-            margin-bottom: 1rem;
+        .logo-container {
             display: flex;
             align-items: center;
-            font-size: 0.9rem;
-            color: var(--text-dim);
+            gap: 0.75rem;
         }
 
-        .contact-list a {
-            color: var(--text-main);
+        .memoji-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            background-color: var(--spotify-dark-grey);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--spotify-green);
+            letter-spacing: -0.03em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--spotify-off-white);
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
+            font-size: 0.9rem;
             transition: color 0.2s;
         }
 
-        .contact-list a:hover {
-            color: var(--accent);
+        .nav-links a:hover {
+            color: var(--spotify-white);
         }
 
-        .sidebar-section {
-            margin-top: 2rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--border);
+        .hero {
+            padding: 4rem 0;
         }
 
-        .sidebar-section h3 {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--accent);
-            margin-bottom: 1.25rem;
-            font-weight: 800;
-        }
-
-        .skill-group {
+        .hero h1 {
+            font-size: 5rem;
+            font-weight: 900;
+            letter-spacing: -0.04em;
+            line-height: 1;
             margin-bottom: 1.5rem;
         }
 
-        .skill-group-title {
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: var(--text-main);
-            margin-bottom: 0.5rem;
-            display: block;
+        .hero p {
+            font-size: 1.5rem;
+            color: var(--spotify-off-white);
+            max-width: 100%;
+            margin-bottom: 2.5rem;
         }
 
-        .skill-tag {
-            display: inline-block;
-            padding: 0.35rem 0.7rem;
-            background: var(--bg-body);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            margin: 0 0.3rem 0.3rem 0;
-            color: var(--text-main);
-        }
-
-        /* Main Content Styling */
-        main section {
-            margin-bottom: 4rem;
-        }
-
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            margin-bottom: 2rem;
+        .cta-group {
             display: flex;
+            gap: 1rem;
+            align-items: stretch;
+        }
+
+        .btn {
+            display: inline-flex;
             align-items: center;
-            gap: 1.5rem;
-        }
-
-        .section-title::after {
-            content: "";
-            height: 2px;
-            background: var(--border);
-            flex: 1;
-        }
-
-        .card {
-            background: var(--bg-card);
-            padding: 2.5rem;
-            border-radius: 16px;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border);
-            margin-bottom: 2rem;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .card:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 1rem;
-        }
-
-        .card-title {
-            font-size: 1.4rem;
+            justify-content: center;
+            padding: 0 2.5rem;
+            border-radius: 500px;
             font-weight: 700;
-            color: var(--text-main);
+            text-decoration: none;
+            transition: transform 0.2s, background-color 0.2s;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            box-sizing: border-box;
+            height: 56px;
+        }
+
+        .btn-primary {
+            background-color: var(--spotify-green);
+            color: var(--spotify-black);
+            border: 1px solid var(--spotify-green);
+        }
+
+        .btn-primary:hover {
+            background-color: #1ed760;
+            border-color: #1ed760;
+            transform: scale(1.04);
+        }
+
+        .btn-secondary {
+            border: 1px solid var(--spotify-off-white);
+            color: var(--spotify-white);
+            background-color: transparent;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--spotify-white);
+            transform: scale(1.04);
+        }
+
+        section {
+            margin-bottom: 6rem;
+        }
+
+        h2.section-title {
+            font-size: 2.25rem;
+            font-weight: 800;
+            margin-bottom: 2.5rem;
             letter-spacing: -0.02em;
         }
 
-        .card-date {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--accent);
-            background: rgba(37, 99, 235, 0.1);
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            white-space: nowrap;
-        }
-
-        .card-subtitle {
-            font-weight: 600;
-            color: var(--text-main);
-            margin-bottom: 0.5rem;
-            font-size: 1.05rem;
-        }
-
-        .card-location {
-            font-size: 0.9rem;
-            color: var(--text-dim);
-            margin-bottom: 1.25rem;
-            font-style: italic;
-        }
-
-        .card-content {
-            font-size: 0.95rem;
-            color: var(--text-dim);
-        }
-
-        .bullet-list {
-            list-style: none;
-            margin-top: 1rem;
-        }
-
-        .bullet-list li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .bullet-list li::before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-weight: bold;
-        }
-
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        .experience-grid {
+            display: flex;
+            flex-direction: column;
             gap: 1.5rem;
         }
 
-        .info-card {
-            padding: 1.5rem;
-            background: var(--bg-card);
+        .experience-card {
+            background-color: var(--spotify-dark-grey);
+            padding: 2rem;
             border-radius: 12px;
-            border: 1px solid var(--border);
-            box-shadow: var(--shadow);
+            transition: background-color 0.3s;
         }
 
-        .highlight-card {
-            background: var(--accent-gradient);
-            color: white;
-            border: none;
+        .experience-card:hover {
+            background-color: var(--spotify-light-grey);
         }
 
-        .highlight-card h3 {
-            font-family: 'Playfair Display', serif;
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 1rem;
+        }
+
+        .exp-title h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .exp-title p {
+            color: var(--spotify-green);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .exp-title a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .exp-title a:hover {
+            color: var(--spotify-green);
+            text-decoration: underline;
+        }
+
+        .exp-meta {
+            text-align: right;
+        }
+
+        .exp-duration {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .exp-location {
+            color: var(--spotify-off-white);
+            font-size: 0.85rem;
+            font-style: italic;
+        }
+
+        .exp-description {
+            color: var(--spotify-off-white);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            font-size: 0.95rem;
+        }
+
+        .exp-details ul {
+            list-style: none;
+        }
+
+        .exp-details li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--spotify-off-white);
+            font-size: 0.95rem;
+        }
+
+        .exp-details li strong {
+            color: var(--spotify-white);
+        }
+
+        .exp-details li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--spotify-green);
+            font-size: 1.2rem;
+        }
+
+        .backstage-card {
+            background: linear-gradient(135deg, #282828 0%, #121212 100%);
+            padding: 3rem;
+            border-radius: 12px;
+            border-left: 6px solid var(--spotify-green);
+        }
+
+        .backstage-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .backstage-text h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1.25rem;
+            color: var(--spotify-green);
+            font-weight: 800;
+        }
+
+        .backstage-text p {
+            margin-bottom: 1.25rem;
+            color: var(--spotify-white);
+            font-size: 1.05rem;
+            max-width: 100%;
+        }
+
+        .music-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .music-tag {
+            font-size: 0.85rem;
+            background: rgba(29, 185, 84, 0.1);
+            color: var(--spotify-green);
+            padding: 0.4rem 1rem;
+            border-radius: 100px;
+            border: 1px solid var(--spotify-green);
+            font-weight: 600;
+        }
+
+        /* --- Skills Section --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .skill-category h3 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--spotify-white);
+            margin-bottom: 1.25rem;
+            opacity: 0.6;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-pill {
+            background-color: var(--spotify-dark-grey);
+            color: var(--spotify-off-white);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .skill-pill:hover {
+            background-color: var(--spotify-green);
+            color: var(--spotify-black);
+            transform: translateY(-2px);
+        }
+
+        .item-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .grid-item {
+            background-color: var(--spotify-dark-grey);
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: background-color 0.2s;
+        }
+
+        .grid-item:hover {
+            background-color: var(--spotify-light-grey);
+        }
+
+        .grid-item h3 {
+            font-size: 1.1rem;
             margin-bottom: 0.5rem;
+            color: var(--spotify-green);
+        }
+
+        .grid-item h3 a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .grid-item h3 a:hover {
+            text-decoration: underline;
+        }
+
+        .grid-item p {
+            font-size: 0.9rem;
+            color: var(--spotify-off-white);
+        }
+
+        .grid-item p a {
+            color: var(--spotify-green);
+            text-decoration: none;
+        }
+
+        .grid-item p a:hover {
+            text-decoration: underline;
+        }
+
+        .grid-item .item-meta {
+            font-size: 0.8rem;
+            color: var(--spotify-white);
+            font-weight: 600;
+            margin-top: 0.5rem;
+            display: block;
+        }
+
+        .grid-item .item-meta a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .grid-item .item-meta a:hover {
+            color: var(--spotify-green);
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 4rem;
+            padding: 4rem 0;
+            border-top: 1px solid var(--spotify-light-grey);
+            color: var(--spotify-off-white);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-col h4 {
+            color: var(--spotify-white);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li, .footer-col p {
+            margin-bottom: 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-col a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover {
+            color: var(--spotify-green);
         }
 
         @media (max-width: 1024px) {
-            .main-wrapper {
-                grid-template-columns: 1fr;
-                margin: 2rem auto;
-            }
-            aside { position: relative; top: 0; }
+            .hero h1 { font-size: 4rem; }
         }
 
-        @media print {
-            .main-wrapper { display: block; margin: 0; padding: 0; }
-            .card { break-inside: avoid; box-shadow: none; border: 1px solid #eee; }
-            aside { margin-bottom: 2rem; }
+        @media (max-width: 768px) {
+            :root {
+                --container-width: 100%;
+            }
+            .container { padding: 0 1.5rem; }
+            nav { padding: 1.5rem 0; flex-direction: column; gap: 1.5rem; position: relative; }
+            .nav-links { gap: 1rem; flex-wrap: wrap; justify-content: center; }
+            .nav-links a { font-size: 0.75rem; }
+            
+            .hero { padding: 2rem 0; }
+            .hero h1 { font-size: 2.75rem; }
+            .hero p { font-size: 1.1rem; }
+            
+            h2.section-title { font-size: 1.75rem; margin-bottom: 1.5rem; }
+            section { margin-bottom: 4rem; }
+            
+            .exp-header { flex-direction: column; gap: 0.5rem; }
+            .exp-meta { text-align: left; }
+            .experience-card { padding: 1.5rem; }
+            
+            .backstage-card { padding: 2rem 1.5rem; }
+            .backstage-text h3 { font-size: 1.5rem; }
+            .backstage-text p { font-size: 0.95rem; }
+            
+            .skills-grid { gap: 1.5rem; }
+            
+            .footer-grid { gap: 2rem; }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 2.25rem; }
+            .cta-group { flex-direction: column; width: 100%; }
+            .btn { text-align: center; width: 100%; }
         }
     </style>
 </head>
 <body>
-    <div class="main-wrapper">
-        <aside>
-            <div class="profile-card">
-                <h1>Črt Gregorič</h1>
-                <p class="tagline">Lead iOS Engineer</p>
-                <ul class="contact-list">
-                    <li><a href="mailto:crt.gregoric@gmail.com">crt.gregoric@gmail.com</a></li>
-                    <li><a href="http://www.linkedin.com/in/crtgregoric" target="_blank">linkedin.com/in/crtgregoric</a></li>
-                </ul>
-
-                <div class="sidebar-section">
-                    <h3>Technical Mastery</h3>
-                    <div class="skill-group">
-                        <span class="skill-group-title">Languages</span>
-                        <span class="skill-tag">Swift</span>
-                        <span class="skill-tag">SwiftUI</span>
-                        <span class="skill-tag">UIKit</span>
-                        <span class="skill-tag">Objective-C</span>
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Bash</span>
-                        <span class="skill-tag">Java</span>
-                        <span class="skill-tag">C</span>
-                    </div>
-                    <div class="skill-group">
-                        <span class="skill-group-title">Architecture & SDKs</span>
-                        <span class="skill-tag">MVVM</span>
-                        <span class="skill-tag">Clean Architecture</span>
-                        <span class="skill-tag">Modularization</span>
-                        <span class="skill-tag">WebRTC (LiveKit)</span>
-                        <span class="skill-tag">RevenueCat</span>
-                        <span class="skill-tag">Firebase</span>
-                    </div>
-                    <div class="skill-group">
-                        <span class="skill-group-title">Infrastructure & DevOps</span>
-                        <span class="skill-tag">Fastlane</span>
-                        <span class="skill-tag">Bitrise CI/CD</span>
-                        <span class="skill-tag">TestFlight</span>
-                        <span class="skill-tag">Sentry</span>
-                        <span class="skill-tag">Crashlytics</span>
-                    </div>
-                    <div class="skill-group">
-                        <span class="skill-group-title">Design Tools</span>
-                        <span class="skill-tag">Figma</span>
-                        <span class="skill-tag">Lottie</span>
-                        <span class="skill-tag">Sketch</span>
-                        <span class="skill-tag">Photoshop</span>
-                        <span class="skill-tag">Illustrator</span>
-                    </div>
-                </div>
-
-                <div class="sidebar-section">
-                    <h3>Personal</h3>
-                    <div class="skill-group">
-                        <span class="skill-group-title">Languages</span>
-                        <p style="font-size: 0.85rem; color: var(--text-dim);">English (Fluent), Italian (Fluent), Slovenian (Native)</p>
-                    </div>
-                    <div class="skill-group">
-                        <span class="skill-group-title">Interests</span>
-                        <p style="font-size: 0.85rem; color: var(--text-dim);">Apple ecosystem, hardware gadgets, music production, guitar maintenance.</p>
-                    </div>
-                </div>
+    <div class="container">
+        <nav>
+            <div class="logo-container">
+                <img src="memoji.jpeg" alt="Črt Gregorič" class="memoji-logo">
+                <div class="logo">ČRT GREGORIČ</div>
             </div>
-        </aside>
+            <div class="nav-links">
+                <a href="#experience">EXPERIENCE</a>
+                <a href="#backstage">BACKSTAGE</a>
+                <a href="#freelance">PROJECTS</a>
+                <a href="#skills">TECH STACK</a>
+                <a href="#education">EDUCATION</a>
+            </div>
+        </nav>
 
-        <main>
-            <section id="summary">
-                <h2 class="section-title">Summary</h2>
-                <div class="card">
-                    <p class="card-content" style="font-size: 1.15rem; line-height: 1.8;">
-                        iOS engineer with deep experience building and scaling mobile products from zero to global scale. 
-                        Served as the founding and Lead iOS Engineer at <strong>Speak</strong>, an AI-driven language-learning platform backed by the OpenAI Startup Fund. 
-                        Blends product intuition with engineering rigor, known for high-quality execution, thoughtful design, and reliable collaboration across engineering, product, and leadership.
-                    </p>
+        <main class="main-content">
+            <section class="hero">
+                <h1>Lead iOS<br>Engineer.</h1>
+                <p>Founding and Lead iOS Engineer at Speak. Scaling mobile products from zero to global scale. Blending product intuition with engineering rigor to deliver high-quality, thoughtful user experiences.</p>
+                <div class="cta-group">
+                    <a href="mailto:crt.gregoric@gmail.com" class="btn btn-primary">Get in touch</a>
+                    <a href="http://www.linkedin.com/in/crtgregoric" target="_blank" class="btn btn-secondary">LinkedIn</a>
                 </div>
             </section>
 
             <section id="experience">
-                <h2 class="section-title">Professional Experience</h2>
-                
-                <div class="card">
-                    <div class="card-header">
-                        <span class="card-title">USBC</span>
-                        <span class="card-date">Jan 2026 — Present</span>
+                <h2 class="section-title">Experience</h2>
+                <div class="experience-grid">
+                    
+                    <!-- USBC -->
+                    <div class="experience-card">
+                        <div class="exp-header">
+                            <div class="exp-title">
+                                <h3>Senior iOS Engineer</h3>
+                                <p><a href="https://usbc.xyz/" target="_blank">USBC</a></p>
+                            </div>
+                            <div class="exp-meta">
+                                <span class="exp-duration">Jan 2026 - Present</span>
+                                <span class="exp-location">Reno, NV / Ljubljana, Slovenia (Remote)</span>
+                            </div>
+                        </div>
+                        <p class="exp-description">USBC is a publicly traded technology company developing blockchain-based financial services, led by Chairman and CEO Greg Kidd.</p>
+                        <div class="exp-details">
+                            <ul>
+                                <li><strong>Feature Delivery & Migration:</strong> Shipped end-to-end chat features (replies, editing, status indicators) and migrated the core messaging module to a new project, refactoring the implementation to meet modern architectural standards.</li>
+                                <li><strong>Infrastructure & Observability:</strong> Designed and built a unified logging system from scratch, replacing multiple legacy approaches and migrating the entire codebase to improve production debugging and monitoring.</li>
+                                <li><strong>State Management & Architecture:</strong> Delivered a multi-identity switching system.</li>
+                                <li><strong>Codebase Health & Tooling:</strong> Reduced build times via multiple dead-code cleanup passes and built internal developer utilities to streamline the development, debugging, and testing of new features.</li>
+                            </ul>
+                        </div>
                     </div>
-                    <p class="card-subtitle">Senior iOS Developer</p>
-                    <p class="card-location">Reno, NV / Ljubljana, Slovenia (Remote)</p>
-                    <div class="card-content">
-                        <p>Developing blockchain-based financial services, including tokenized deposits and digital identity solutions led by CEO Greg Kidd.</p>
-                        <ul class="bullet-list">
-                            <li><strong>Feature Delivery & Migration:</strong> Shipped end-to-end chat features and migrated core messaging module to modern architectural standards.</li>
-                            <li><strong>Infrastructure & Observability:</strong> Designed and built a unified logging system from scratch, replacing multiple legacy approaches.</li>
-                            <li><strong>State Management:</strong> Delivered a multi-identity switching system.</li>
-                            <li><strong>Codebase Health:</strong> Reduced build times via dead-code cleanup and built internal developer utilities.</li>
-                        </ul>
+
+                    <!-- Speakeasy Labs -->
+                    <div class="experience-card">
+                        <div class="exp-header">
+                            <div class="exp-title">
+                                <h3>Lead iOS Engineer</h3>
+                                <p><a href="https://www.speak.com" target="_blank">Speakeasy Labs (Speak)</a></p>
+                            </div>
+                            <div class="exp-meta">
+                                <span class="exp-duration">Aug 2017 - Sep 2025</span>
+                                <span class="exp-location">San Francisco, CA / Ljubljana, Slovenia (Remote)</span>
+                            </div>
+                        </div>
+                        <p class="exp-description">Speak is a fast-growing AI-powered language learning platform backed by the OpenAI Startup Fund, Accel, Founders Fund, and Khosla Ventures.</p>
+                        <div class="exp-details">
+                            <ul>
+                                <li>Founding iOS engineer, responsible for building the entire iOS app from scratch.</li>
+                                <li>Built the iOS application from prototype to globally scaled production system used in multiple markets.</li>
+                                <li>Owned architecture, feature implementation, app stability, and long-term codebase direction.</li>
+                                <li>Implemented the vast majority of iOS features during the company’s first five years.</li>
+                                <li>Built complex UIKit-driven interfaces, animations, and UIKit/SwiftUI hybrid components.</li>
+                                <li>Set up core infrastructure: Firebase (RTDB, Firestore, Storage), analytics pipelines, A/B testing (Split.io), Crashlytics, Fastlane automation, Bitrise CI/CD, and TestFlight distribution.</li>
+                                <li>Collaborated daily with the CTO and CEO in the early years for product planning and technical strategy.</li>
+                                <li>As the company expanded across time zones, shifted focus primarily to feature development, engineering execution, and platform improvements.</li>
+                                <li>Led hiring & interviewing for iOS, Android, backend, and QA roles; onboarded new engineers.</li>
+                                <li>Coordinated API planning with backend and Android teams, ensuring alignment across platforms.</li>
+                                <li>Delivered consistently stable, polished releases with a strong emphasis on visual detail, UX consistency, and low bug rates.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Kamino -->
+                    <div class="experience-card">
+                        <div class="exp-header">
+                            <div class="exp-title">
+                                <h3>Senior iOS Engineer</h3>
+                                <p>Kamino</p>
+                            </div>
+                            <div class="exp-meta">
+                                <span class="exp-duration">Jan 2016 - May 2017</span>
+                                <span class="exp-location">Ljubljana, Slovenia</span>
+                            </div>
+                        </div>
+                        <div class="exp-details">
+                            <ul>
+                                <li>Development of iOS applications.</li>
+                                <li>Project lead iOS engineer (eAsistent, Fancore).</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- D.Labs Mid -->
+                    <div class="experience-card">
+                        <div class="exp-header">
+                            <div class="exp-title">
+                                <h3>Mid iOS Engineer</h3>
+                                <p><a href="https://dlabs.io" target="_blank">D·Labs</a></p>
+                            </div>
+                            <div class="exp-meta">
+                                <span class="exp-duration">Oct 2014 - Dec 2015</span>
+                                <span class="exp-location">Ljubljana, Slovenia</span>
+                            </div>
+                        </div>
+                        <div class="exp-details">
+                            <ul>
+                                <li>Project lead iOS engineer (Rock Pamper Scissors).</li>
+                                <li>Development of iOS applications (Teepee, Lock and Charge, Outcast, Go Car Share, Rock it, Minicabster).</li>
+                                <li>Development of watchOS applications (Lock and Charge).</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- D.Labs Intern -->
+                    <div class="experience-card">
+                        <div class="exp-header">
+                            <div class="exp-title">
+                                <h3>iOS Intern</h3>
+                                <p><a href="https://dlabs.io" target="_blank">D·Labs</a></p>
+                            </div>
+                            <div class="exp-meta">
+                                <span class="exp-duration">Apr 2014 - Jun 2014</span>
+                                <span class="exp-location">Ljubljana, Slovenia</span>
+                            </div>
+                        </div>
+                        <div class="exp-details">
+                            <ul>
+                                <li>Development of iOS applications (DTrack, Snore Catcher, Minicabster, Minicabster Driver).</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Layer -->
+                    <div class="experience-card">
+                        <div class="exp-header">
+                            <div class="exp-title">
+                                <h3>Summer Intern</h3>
+                                <p>Layer</p>
+                            </div>
+                            <div class="exp-meta">
+                                <span class="exp-duration">Jul 2013 - Sep 2013</span>
+                                <span class="exp-location">San Francisco, CA</span>
+                            </div>
+                        </div>
+                        <div class="exp-details">
+                            <ul>
+                                <li>Layer iOS SDK documentation.</li>
+                                <li>Developed iOS UI components.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
+            </section>
 
-                <div class="card">
-                    <div class="card-header">
-                        <span class="card-title">Speakeasy Labs (Speak)</span>
-                        <span class="card-date">Aug 2017 — Sep 2025</span>
-                    </div>
-                    <p class="card-subtitle">Lead iOS Engineer</p>
-                    <p class="card-location">San Francisco, CA / Ljubljana, Slovenia (Remote)</p>
-                    <div class="card-content">
-                        <p>Founding iOS engineer for a fast-growing AI-powered language platform with investment from OpenAI, Accel, and Founders Fund.</p>
-                        <ul class="bullet-list">
-                            <li>Responsible for building the entire iOS app from prototype to globally scaled production system.</li>
-                            <li>Owned architecture, feature implementation, app stability, and long-term codebase direction.</li>
-                            <li>Built complex UIKit-driven interfaces, animations, and UIKit/SwiftUI hybrid components.</li>
-                            <li>Set up core infrastructure: Firebase, analytics pipelines, A/B testing (Split.io), and CI/CD (Bitrise).</li>
-                            <li>Led hiring and interviewing for mobile, backend, and QA roles; onboarded new engineers.</li>
-                            <li>Coordinated API planning with backend and Android teams for cross-platform alignment.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-header">
-                        <span class="card-title">Kamino</span>
-                        <span class="card-date">Jan 2016 — May 2017</span>
-                    </div>
-                    <p class="card-subtitle">Senior iOS Developer</p>
-                    <div class="card-content">
-                        <ul class="bullet-list">
-                            <li>Project lead iOS developer for <strong>eAsistent</strong> and <strong>Fancore</strong>.</li>
-                            <li>Directly responsible for development of critical mobile applications.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-header">
-                        <span class="card-title">D·Labs</span>
-                        <span class="card-date">Apr 2014 — Dec 2015</span>
-                    </div>
-                    <p class="card-subtitle">Mid iOS Developer & Intern</p>
-                    <div class="card-content">
-                        <ul class="bullet-list">
-                            <li>Project lead for <strong>Rock Pamper Scissors</strong>.</li>
-                            <li>Developed iOS applications: Teepee, Lock and Charge, Outcast, Go Car Share, Rock it, Minicabster, DTrack, and Snore Catcher.</li>
-                            <li>Developed watchOS applications for Lock and Charge.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-header">
-                        <span class="card-title">Layer</span>
-                        <span class="card-date">Jul 2013 — Sep 2013</span>
-                    </div>
-                    <p class="card-subtitle">Summer Intern</p>
-                    <p class="card-location">San Francisco, CA</p>
-                    <div class="card-content">
-                        <ul class="bullet-list">
-                            <li>Developed iOS UI components and contributed to Layer iOS SDK documentation.</li>
-                        </ul>
+            <section id="backstage">
+                <div class="backstage-card">
+                    <div class="backstage-content">
+                        <div class="backstage-text">
+                            <h3>The Backstage</h3>
+                            <p>Music is my constant companion, setting the tone for every part of my day and serving as my primary creative outlet. My passion for guitar goes beyond just playing - I am also deeply involved in the craft of maintaining and working on the instruments themselves.</p>
+                            <p>I love the entire process of writing and recording music, a creative journey I currently explore through a black metal project with a group of friends.</p>
+                            <div class="music-tags">
+                                <span class="music-tag">Music Production</span>
+                                <span class="music-tag">Guitar Maintenance</span>
+                                <span class="music-tag">Music Writing</span>
+                                <span class="music-tag">Home Recording</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
 
             <section id="freelance">
-                <h2 class="section-title">Freelance Projects</h2>
-                <div class="info-grid">
-                    <div class="info-card">
-                        <h4 style="margin-bottom: 0.5rem;">Speech Blubs (2017)</h4>
-                        <p style="font-size: 0.85rem; color: var(--text-dim);">Speech therapy app for children. iOS Developer.</p>
+                <h2 class="section-title">Other Freelance Projects</h2>
+                <div class="item-grid">
+                    <div class="grid-item">
+                        <h3>Speech Blubs, 2017</h3>
+                        <p>Speech therapy app for children, iOS engineer (<a href="https://apps.apple.com/app/id1158525049" target="_blank">App Store</a>).</p>
                     </div>
-                    <div class="info-card">
-                        <h4 style="margin-bottom: 0.5rem;">Instavest (2017)</h4>
-                        <p style="font-size: 0.85rem; color: var(--text-dim);">Investment platform. iOS Developer.</p>
+                    <div class="grid-item">
+                        <h3>Instavest, 2017</h3>
+                        <p>Investment app, iOS engineer (<a href="https://apps.apple.com/app/id1044431527" target="_blank">App Store</a>).</p>
                     </div>
-                    <div class="info-card">
-                        <h4 style="margin-bottom: 0.5rem;">Yomento (2016/17)</h4>
-                        <p style="font-size: 0.85rem; color: var(--text-dim);">Leadership coaching app. iOS Developer.</p>
+                    <div class="grid-item">
+                        <h3>Yomento, 2016/2017</h3>
+                        <p>Leadership coaching app, iOS engineer.</p>
                     </div>
-                    <div class="info-card">
-                        <h4 style="margin-bottom: 0.5rem;">WorkClean (2016)</h4>
-                        <p style="font-size: 0.85rem; color: var(--text-dim);">Productivity app. iOS Developer.</p>
+                    <div class="grid-item">
+                        <h3>WorkClean, 2016</h3>
+                        <p>Productivity app, iOS engineer (<a href="https://apps.apple.com/app/id1078716383" target="_blank">App Store</a>).</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="skills">
+                <h2 class="section-title">The Tech Stack</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Languages</h3>
+                        <div class="skill-list">
+                            <div class="skill-pill">Swift</div>
+                            <div class="skill-pill">Objective-C</div>
+                            <div class="skill-pill">Python</div>
+                            <div class="skill-pill">Bash</div>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Frameworks</h3>
+                        <div class="skill-list">
+                            <div class="skill-pill">UIKit</div>
+                            <div class="skill-pill">SwiftUI</div>
+                            <div class="skill-pill">Swift Concurrency</div>
+                            <div class="skill-pill">GCD</div>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Architecture</h3>
+                        <div class="skill-list">
+                            <div class="skill-pill">Clean Architecture</div>
+                            <div class="skill-pill">Modularization</div>
+                            <div class="skill-pill">MVVM</div>
+                            <div class="skill-pill">MVC</div>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Infrastructure</h3>
+                        <div class="skill-list">
+                            <div class="skill-pill">Firebase (RTDB/Firestore)</div>
+                            <div class="skill-pill">REST APIs</div>
+                            <div class="skill-pill">Bitrise / Fastlane</div>
+                            <div class="skill-pill">Xcode / TestFlight</div>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Analytics & Observability</h3>
+                        <div class="skill-list">
+                            <div class="skill-pill">Amplitude / Mixpanel</div>
+                            <div class="skill-pill">Segment / Customer.io</div>
+                            <div class="skill-pill">Split.io (A/B Testing)</div>
+                            <div class="skill-pill">Crashlytics / Sentry</div>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Design & SDKs</h3>
+                        <div class="skill-list">
+                            <div class="skill-pill">Figma / Sketch</div>
+                            <div class="skill-pill">Lottie</div>
+                            <div class="skill-pill">LiveKit (WebRTC)</div>
+                            <div class="skill-pill">RevenueCat (IAP)</div>
+                            <div class="skill-pill">Intercom</div>
+                        </div>
                     </div>
                 </div>
             </section>
 
             <section id="education">
-                <h2 class="section-title">Education & Recognition</h2>
-                <div class="card">
-                    <div class="card-header">
-                        <span class="card-title">University of Ljubljana</span>
-                        <span class="card-date">2011 — 2015</span>
+                <h2 class="section-title">Education</h2>
+                <div class="experience-card">
+                    <div class="exp-header">
+                        <div class="exp-title">
+                            <h3>BSc, Computer Science</h3>
+                            <p><a href="https://www.fri.uni-lj.si" target="_blank">University of Ljubljana</a></p>
+                        </div>
+                        <div class="exp-meta">
+                            <span class="exp-duration">Oct 2011 - Feb 2015</span>
+                            <span class="exp-location">Slovenia</span>
+                        </div>
                     </div>
-                    <p class="card-subtitle">BSc in Computer Science</p>
-                    <div class="card-content">
-                        <p><strong>Bachelor’s Thesis:</strong> Development of an iOS controlled mobile robot.</p>
-                        <p style="margin-top: 0.5rem;">Designed robot hardware and software from scratch; developed native iOS app for remote driving and real-time video streaming.</p>
-                    </div>
-                </div>
-
-                <div class="info-grid">
-                    <div class="info-card highlight-card">
-                        <h3>TechCrunch Disrupt SF Winner</h3>
-                        <p>Grand prize winner in San Francisco (2013).</p>
-                    </div>
-                    <div class="info-card">
-                        <h4 style="margin-bottom: 0.5rem;">Dean's Award</h4>
-                        <p style="font-size: 0.85rem; color: var(--text-dim);">Exemplary completed academic requirements.</p>
-                    </div>
-                    <div class="info-card">
-                        <h4 style="margin-bottom: 0.5rem;">Conferences</h4>
-                        <p style="font-size: 0.85rem; color: var(--text-dim);">WWDC 2017 (San Jose), UIKonf 2015 (Berlin).</p>
+                    <div class="exp-details">
+                        <ul>
+                            <li><strong>Bachelor’s Thesis:</strong> Development of an iOS controlled mobile robot.</li>
+                            <li>Designed and built the robot’s hardware and software from scratch, including sensors, servo motors, camera module, and illumination system.</li>
+                            <li>Developed a native iOS/iPadOS app enabling remote driving, camera angle control, and real-time video streaming.</li>
+                            <li>Implemented Python-based control software on a Raspberry Pi.</li>
+                        </ul>
                     </div>
                 </div>
             </section>
+
+            <section id="recognition">
+                <h2 class="section-title">Achievements & Conferences</h2>
+                <div class="item-grid">
+                    <div class="grid-item">
+                        <h3><a href="https://techcrunch.com/2013/09/11/and-the-winner-of-techcrunch-disrupt-sf-2013-is-layer/" target="_blank">TechCrunch Disrupt SF Winner</a></h3>
+                        <p>San Francisco, CA</p>
+                        <span class="item-meta">2013 Winner</span>
+                    </div>
+                    <div class="grid-item">
+                        <h3>Dean's Award</h3>
+                        <p>Exemplary academic requirements</p>
+                        <span class="item-meta"><a href="https://www.fri.uni-lj.si" target="_blank">University of Ljubljana</a></span>
+                    </div>
+                    <div class="grid-item">
+                        <h3><a href="https://developer.apple.com/wwdc/" target="_blank">WWDC</a></h3>
+                        <p>Apple Worldwide Developers Conference</p>
+                        <span class="item-meta">June 2017 • San Jose, CA</span>
+                    </div>
+                    <div class="grid-item">
+                        <h3><a href="https://www.uikonf.com" target="_blank">UIKonf</a></h3>
+                        <p>International iOS Conference</p>
+                        <span class="item-meta">May 2015 • Berlin, Germany</span>
+                    </div>
+                </div>
+            </section>
+
+            <footer>
+                <div class="footer-grid">
+                    <div class="footer-col">
+                        <h4>Connect</h4>
+                        <ul>
+                            <li><a href="mailto:crt.gregoric@gmail.com">crt.gregoric@gmail.com</a></li>
+                            <li><a href="http://www.linkedin.com/in/crtgregoric" target="_blank">LinkedIn</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Languages</h4>
+                        <ul>
+                            <li>English (Fluent)</li>
+                            <li>Italian (Fluent)</li>
+                            <li>Slovenian (Fluent)</li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Interests</h4>
+                        <ul>
+                            <li>Apple Ecosystem</li>
+                            <li>UI & UX Design</li>
+                            <li>Music Production</li>
+                        </ul>
+                    </div>
+                </div>
+                <p style="font-size: 0.8rem; opacity: 0.6;">&copy; 2026 Črt Gregorič.</p>
+            </footer>
         </main>
     </div>
 </body>
