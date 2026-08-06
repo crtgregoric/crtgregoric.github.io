@@ -3,19 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Črt Gregorič | Lead iOS Engineer & Music Enthusiast</title>
+    <title>Črt Gregorič | Lead iOS Engineer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --spotify-black: #121212;
-            --spotify-dark-grey: #181818;
-            --spotify-light-grey: #282828;
-            --spotify-green: #1DB954;
-            --spotify-white: #FFFFFF;
-            --spotify-off-white: #B3B3B3;
-            --card-hover: #3E3E3E;
+            --void: #121212;
+            --panel: #181818;
+            --panel-hover: #282828;
+            --panel-deep: #14141f;
+            --neon-cyan: #22f7ff;
+            --neon-pink: #ff2bd6;
+            --neon-violet: #8b5cff;
+            --neon-amber: #ffd166;
+            --paper: #f6f3ff;
+            --muted: #a9a3bd;
+            --border: rgba(139, 92, 255, 0.24);
+            --shadow-glow: rgba(34, 247, 255, 0.24);
             --container-width: 900px;
         }
 
@@ -26,14 +31,29 @@
         }
 
         body {
-            font-family: 'Figtree', sans-serif;
-            background-color: var(--spotify-black);
-            color: var(--spotify-white);
+            font-family: 'Geist', sans-serif;
+            background-color: var(--void);
+            color: var(--paper);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
         }
 
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background:
+                linear-gradient(rgba(34, 247, 255, 0.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 43, 214, 0.025) 1px, transparent 1px);
+            background-size: 42px 42px;
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.45), transparent 70%);
+            z-index: 0;
+        }
+
         .container {
+            position: relative;
+            z-index: 1;
             max-width: var(--container-width);
             margin: 0 auto;
             padding: 0 2rem;
@@ -60,16 +80,20 @@
         .memoji-logo {
             width: 40px;
             height: 40px;
-            border-radius: 50%;
+            border-radius: 12px;
             object-fit: cover;
-            background-color: var(--spotify-dark-grey);
+            background-color: var(--panel);
+            border: 1px solid var(--border);
+            box-shadow: 0 0 22px rgba(139, 92, 255, 0.22);
         }
 
         .logo {
+            font-family: 'Rajdhani', sans-serif;
             font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--spotify-green);
-            letter-spacing: -0.03em;
+            font-weight: 700;
+            color: var(--paper);
+            letter-spacing: 0.08em;
+            text-shadow: 0 0 18px rgba(139, 92, 255, 0.38);
         }
 
         .nav-links {
@@ -78,15 +102,18 @@
         }
 
         .nav-links a {
-            color: var(--spotify-off-white);
+            color: var(--muted);
             text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: color 0.2s;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: color 0.2s, text-shadow 0.2s;
+            letter-spacing: 0.12em;
         }
 
         .nav-links a:hover {
-            color: var(--spotify-white);
+            color: var(--neon-amber);
+            text-shadow: 0 0 16px rgba(255, 209, 102, 0.25);
         }
 
         .hero {
@@ -94,16 +121,20 @@
         }
 
         .hero h1 {
+            font-family: 'Rajdhani', sans-serif;
             font-size: 5rem;
-            font-weight: 900;
-            letter-spacing: -0.04em;
+            font-weight: 700;
+            letter-spacing: 0.02em;
             line-height: 1;
             margin-bottom: 1.5rem;
+            text-shadow:
+                0 0 28px rgba(34, 247, 255, 0.12),
+                0 0 46px rgba(255, 43, 214, 0.08);
         }
 
         .hero p {
             font-size: 1.5rem;
-            color: var(--spotify-off-white);
+            color: var(--muted);
             max-width: 100%;
             margin-bottom: 2.5rem;
         }
@@ -119,38 +150,41 @@
             align-items: center;
             justify-content: center;
             padding: 0 2.5rem;
-            border-radius: 500px;
+            border-radius: 12px;
+            font-family: 'Rajdhani', sans-serif;
             font-weight: 700;
             text-decoration: none;
-            transition: transform 0.2s, background-color 0.2s;
-            font-size: 0.9rem;
+            transition: transform 0.2s, background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+            font-size: 1rem;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.14em;
             box-sizing: border-box;
             height: 56px;
         }
 
         .btn-primary {
-            background-color: var(--spotify-green);
-            color: var(--spotify-black);
-            border: 1px solid var(--spotify-green);
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-violet));
+            color: var(--void);
+            border: 1px solid rgba(246, 243, 255, 0.18);
+            box-shadow: 0 0 26px var(--shadow-glow), 0 0 44px rgba(139, 92, 255, 0.16);
         }
 
         .btn-primary:hover {
-            background-color: #1ed760;
-            border-color: #1ed760;
-            transform: scale(1.04);
+            background: linear-gradient(135deg, #7afaff, #a891ff);
+            border-color: rgba(246, 243, 255, 0.32);
+            transform: translateY(-3px);
         }
 
         .btn-secondary {
-            border: 1px solid var(--spotify-off-white);
-            color: var(--spotify-white);
-            background-color: transparent;
+            border: 1px solid var(--neon-pink);
+            color: var(--paper);
+            background-color: rgba(255, 43, 214, 0.08);
         }
 
         .btn-secondary:hover {
-            border-color: var(--spotify-white);
-            transform: scale(1.04);
+            border-color: var(--neon-amber);
+            box-shadow: 0 0 26px rgba(255, 43, 214, 0.22);
+            transform: translateY(-3px);
         }
 
         section {
@@ -158,10 +192,23 @@
         }
 
         h2.section-title {
+            font-family: 'Rajdhani', sans-serif;
             font-size: 2.25rem;
-            font-weight: 800;
+            font-weight: 700;
             margin-bottom: 2.5rem;
-            letter-spacing: -0.02em;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        h2.section-title::before {
+            content: "";
+            display: inline-block;
+            width: 2.2rem;
+            height: 0.12rem;
+            margin-right: 0.85rem;
+            vertical-align: middle;
+            background: linear-gradient(90deg, var(--neon-pink), var(--neon-cyan));
+            box-shadow: 0 0 14px var(--shadow-glow);
         }
 
         .experience-grid {
@@ -171,14 +218,21 @@
         }
 
         .experience-card {
-            background-color: var(--spotify-dark-grey);
+            background:
+                linear-gradient(135deg, rgba(139, 92, 255, 0.1), transparent 42%),
+                var(--panel-deep);
             padding: 2rem;
-            border-radius: 12px;
-            transition: background-color 0.3s;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            box-shadow: inset 0 1px 0 rgba(246, 243, 255, 0.06);
+            transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s;
         }
 
         .experience-card:hover {
-            background-color: var(--spotify-light-grey);
+            background-color: var(--panel-hover);
+            border-color: rgba(34, 247, 255, 0.34);
+            box-shadow: 0 0 34px rgba(34, 247, 255, 0.08), inset 0 1px 0 rgba(246, 243, 255, 0.08);
+            transform: translateY(-2px);
         }
 
         .exp-header {
@@ -186,7 +240,7 @@
             justify-content: space-between;
             align-items: flex-start;
             margin-bottom: 1rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(247, 243, 255, 0.1);
             padding-bottom: 1rem;
         }
 
@@ -197,9 +251,10 @@
         }
 
         .exp-title p {
-            color: var(--spotify-green);
+            color: var(--neon-cyan);
             font-weight: 600;
             font-size: 1rem;
+            text-shadow: 0 0 12px rgba(34, 247, 255, 0.16);
         }
 
         .exp-title a {
@@ -209,7 +264,7 @@
         }
 
         .exp-title a:hover {
-            color: var(--spotify-green);
+            color: var(--neon-amber);
             text-decoration: underline;
         }
 
@@ -224,13 +279,13 @@
         }
 
         .exp-location {
-            color: var(--spotify-off-white);
+            color: var(--muted);
             font-size: 0.85rem;
             font-style: italic;
         }
 
         .exp-description {
-            color: var(--spotify-off-white);
+            color: var(--muted);
             margin-bottom: 1.5rem;
             font-style: italic;
             font-size: 0.95rem;
@@ -244,27 +299,28 @@
             position: relative;
             padding-left: 1.5rem;
             margin-bottom: 0.75rem;
-            color: var(--spotify-off-white);
+            color: var(--muted);
             font-size: 0.95rem;
         }
 
         .exp-details li strong {
-            color: var(--spotify-white);
+            color: var(--paper);
         }
 
         .exp-details li::before {
-            content: "•";
+            content: "▹";
             position: absolute;
             left: 0;
-            color: var(--spotify-green);
-            font-size: 1.2rem;
+            color: var(--neon-pink);
+            font-size: 1rem;
+            text-shadow: 0 0 10px rgba(255, 43, 214, 0.28);
         }
 
         .backstage-card {
             background: linear-gradient(135deg, #282828 0%, #121212 100%);
             padding: 3rem;
-            border-radius: 12px;
-            border-left: 6px solid var(--spotify-green);
+            border-radius: 10px;
+            border-left: 6px solid var(--neon-cyan);
         }
 
         .backstage-content {
@@ -276,13 +332,13 @@
         .backstage-text h3 {
             font-size: 1.75rem;
             margin-bottom: 1.25rem;
-            color: var(--spotify-green);
+            color: var(--neon-cyan);
             font-weight: 800;
         }
 
         .backstage-text p {
             margin-bottom: 1.25rem;
-            color: var(--spotify-white);
+            color: var(--paper);
             font-size: 1.05rem;
             max-width: 100%;
         }
@@ -296,11 +352,11 @@
 
         .music-tag {
             font-size: 0.85rem;
-            background: rgba(29, 185, 84, 0.1);
-            color: var(--spotify-green);
+            background: rgba(37, 244, 255, 0.1);
+            color: var(--neon-cyan);
             padding: 0.4rem 1rem;
-            border-radius: 100px;
-            border: 1px solid var(--spotify-green);
+            border-radius: 0;
+            border: 1px solid var(--neon-cyan);
             font-weight: 600;
         }
 
@@ -314,10 +370,11 @@
         .skill-category h3 {
             font-size: 0.8rem;
             text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--spotify-white);
+            font-family: 'Rajdhani', sans-serif;
+            letter-spacing: 0.18em;
+            color: var(--paper);
             margin-bottom: 1.25rem;
-            opacity: 0.6;
+            opacity: 0.72;
         }
 
         .skill-list {
@@ -327,19 +384,21 @@
         }
 
         .skill-pill {
-            background-color: var(--spotify-dark-grey);
-            color: var(--spotify-off-white);
+            background-color: rgba(20, 20, 31, 0.9);
+            color: var(--muted);
             padding: 0.5rem 1rem;
-            border-radius: 4px;
+            border-radius: 999px;
+            border: 1px solid rgba(139, 92, 255, 0.2);
             font-size: 0.85rem;
             font-weight: 600;
             transition: all 0.2s;
         }
 
         .skill-pill:hover {
-            background-color: var(--spotify-green);
-            color: var(--spotify-black);
+            background-color: var(--neon-cyan);
+            color: var(--void);
             transform: translateY(-2px);
+            box-shadow: 0 0 18px var(--shadow-glow);
         }
 
         .item-grid {
@@ -349,20 +408,26 @@
         }
 
         .grid-item {
-            background-color: var(--spotify-dark-grey);
+            background:
+                linear-gradient(135deg, rgba(34, 247, 255, 0.07), transparent 48%),
+                var(--panel-deep);
             padding: 1.5rem;
-            border-radius: 8px;
-            transition: background-color 0.2s;
+            border-radius: 10px;
+            border: 1px solid rgba(139, 92, 255, 0.16);
+            transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s, transform 0.2s;
         }
 
         .grid-item:hover {
-            background-color: var(--spotify-light-grey);
+            background-color: var(--panel-hover);
+            border-color: var(--border);
+            box-shadow: 0 0 28px rgba(139, 92, 255, 0.1);
+            transform: translateY(-2px);
         }
 
         .grid-item h3 {
             font-size: 1.1rem;
             margin-bottom: 0.5rem;
-            color: var(--spotify-green);
+            color: var(--neon-cyan);
         }
 
         .grid-item h3 a {
@@ -376,11 +441,11 @@
 
         .grid-item p {
             font-size: 0.9rem;
-            color: var(--spotify-off-white);
+            color: var(--muted);
         }
 
         .grid-item p a {
-            color: var(--spotify-green);
+            color: var(--neon-cyan);
             text-decoration: none;
         }
 
@@ -390,7 +455,7 @@
 
         .grid-item .item-meta {
             font-size: 0.8rem;
-            color: var(--spotify-white);
+            color: var(--paper);
             font-weight: 600;
             margin-top: 0.5rem;
             display: block;
@@ -402,15 +467,15 @@
         }
 
         .grid-item .item-meta a:hover {
-            color: var(--spotify-green);
+            color: var(--neon-amber);
             text-decoration: underline;
         }
 
         footer {
             margin-top: 4rem;
             padding: 4rem 0;
-            border-top: 1px solid var(--spotify-light-grey);
-            color: var(--spotify-off-white);
+            border-top: 1px solid var(--panel-hover);
+            color: var(--muted);
         }
 
         .footer-grid {
@@ -421,11 +486,12 @@
         }
 
         .footer-col h4 {
-            color: var(--spotify-white);
+            color: var(--paper);
             margin-bottom: 1.5rem;
             text-transform: uppercase;
             font-size: 0.8rem;
-            letter-spacing: 0.15em;
+            font-family: 'Rajdhani', sans-serif;
+            letter-spacing: 0.18em;
         }
 
         .footer-col ul {
@@ -444,7 +510,7 @@
         }
 
         .footer-col a:hover {
-            color: var(--spotify-green);
+            color: var(--neon-amber);
         }
 
         @media (max-width: 1024px) {
@@ -481,6 +547,7 @@
         }
 
         @media (max-width: 480px) {
+            .logo { font-size: 1.2rem; }
             .hero h1 { font-size: 2.25rem; }
             .cta-group { flex-direction: column; width: 100%; }
             .btn { text-align: center; width: 100%; }
@@ -496,7 +563,7 @@
             </div>
             <div class="nav-links">
                 <a href="#experience">EXPERIENCE</a>
-                <a href="#backstage">BACKSTAGE</a>
+                <!-- <a href="#backstage">BACKSTAGE</a> -->
                 <a href="#freelance">PROJECTS</a>
                 <a href="#skills">TECH STACK</a>
                 <a href="#education">EDUCATION</a>
@@ -652,7 +719,7 @@
                 </div>
             </section>
 
-            <section id="backstage">
+            <!-- <section id="backstage">
                 <div class="backstage-card">
                     <div class="backstage-content">
                         <div class="backstage-text">
@@ -668,7 +735,7 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> -->
 
             <section id="freelance">
                 <h2 class="section-title">Other Freelance Projects</h2>
