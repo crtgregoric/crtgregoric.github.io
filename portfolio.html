@@ -140,6 +140,18 @@
             margin-bottom: 2.5rem;
         }
 
+        .hero p a {
+            color: var(--neon-cyan);
+            text-decoration: none;
+            text-shadow: 0 0 12px rgba(34, 247, 255, 0.16);
+            transition: color 0.2s;
+        }
+
+        .hero p a:hover {
+            color: var(--neon-amber);
+            text-decoration: underline;
+        }
+
         .cta-group {
             display: flex;
             gap: 1rem;
@@ -582,7 +594,7 @@
         <main class="main-content">
             <section class="hero">
                 <h1>Lead iOS<br>Engineer.</h1>
-                <p>Founding iOS engineer and eight-year Lead at Speak. I built the iOS product from scratch and helped take it from a two-founder startup to the #1 English app in South Korea, now serving learners in more than 30 countries. I bring 12+ years of product engineering, technical leadership, visual craft, and modern AI-assisted delivery.</p>
+                <p>Founding iOS engineer and eight-year Lead at <a href="https://www.speak.com/" target="_blank">Speak</a>. I built the iOS product from scratch and helped take it from a two-founder startup to the #1 English app in South Korea, now serving learners in more than 30 countries. I bring 12+ years of product engineering, technical leadership, visual craft, and modern AI-assisted delivery.</p>
                 <div class="cta-group">
                     <a href="mailto:crt.gregoric@gmail.com" class="btn btn-primary">Get in touch</a>
                     <a href="http://www.linkedin.com/in/crtgregoric" target="_blank" class="btn btn-secondary">LinkedIn</a>
@@ -611,7 +623,7 @@
                                 <li><strong>Native product foundation:</strong> Built onboarding and authentication across phone and email OTP, passcode creation, consent, OAuth2 token exchange, session state, Keychain persistence, and restoration.</li>
                                 <li><strong>Encrypted messaging:</strong> Led the migration of Matrix-based chat into the standalone Swift package, including SDK integration, custodial recovery keys, and fixes for complex cross-identity authentication and client-lifecycle races.</li>
                                 <li><strong>Identity and payments:</strong> Delivered the multi-identity account system and redesigned asset selection across send, receive, convert, buy, sell, and chat payment flows.</li>
-                                <li><strong>Observability:</strong> Designed and rolled out a unified structured logging system, consolidating five legacy logging paths into consistent categories and severity levels while improving privacy and production diagnostics across environments.</li>
+                                <li><strong>Observability:</strong> Designed and rolled out a unified structured logging system, consolidating multiple legacy logging paths into consistent categories and severity levels while improving privacy and production diagnostics across environments.</li>
                                 <li><strong>Design system and tooling:</strong> Built reusable SwiftUI components, accessibility rules, asset synchronization and XcodeGen tooling, alongside sustained codebase-health and CI-stability improvements.</li>
                                 <li><strong>AI-assisted delivery:</strong> Used shared Claude Code workflows for planning, code generation, testing, acceptance-criteria verification, iterative repair, and multi-stage review; contributed reusable guidance, permission safeguards, and MCP integrations.</li>
                             </ul>
